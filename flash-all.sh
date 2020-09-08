@@ -11,6 +11,11 @@ file="hammerhead-mob31e-factory-90504514.zip"
 imgfile="image-hammerhead-mob31e.zip"
 radiofile="radio-hammerhead-m8974a-2.0.50.2.29.img"
 bootldrimg="bootloader-hammerhead-hhz20h.img"
+recoveryimg=recovery.img
+bootimg=boot.img
+cacheimg=cache.img
+usrdtaimg=userdata.img
+systemimg=system.img
 if [ -z "$file" ]; then
 $wget https://dl.google.com/dl/android/aosp/hammerhead-mob31e-factory-90504514.zip;
 fi
@@ -33,13 +38,13 @@ sudo fastboot format boot;
 sudo fastboot format cache;
 sudo fastboot format data;
 sudo fastboot format userdata;
-sudo fastboot flash boot $nexusdirboot.img;
+sudo fastboot flash boot $nexusdir$bootimg;
 sudo fastboot flash bootloader $nexusdir$bootldrimg;
 sudo fastboot flash radio $nexusdir$radioimg;
 sudo fastboot reboot bootloader;
-sudo fastboot flash cache $nexusdircache.img;
-sudo fastboot flash userdata $nexusdiruserdata.img;
-sudo fastboot flash recovery $nexusdirrecovery.img;
-sudo fastboot flash system $nexusdirsystem.img;
+sudo fastboot flash cache $nexusdir$cacheimg;
+sudo fastboot flash userdata $nexusdir$usrdtaimg;
+sudo fastboot flash recovery $nexusdir$recoveryimg;
+sudo fastboot flash system $nexusdir$systemimg;
 sleep 15;
 exit 0
