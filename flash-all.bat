@@ -1,7 +1,7 @@
 @ECHO OFF
 echo 'batch file made by @independentcod'
 echo 'github.com/independentcod'
-PATH=%PATH%;"%SYSTEMROOT%\System32"
+PATH=%PATH%;".\"
 set nexusdir=".\hammerhead-mob31e\"
 set fastboot=".\fastboot.exe"
 set wget=".\wget.exe"
