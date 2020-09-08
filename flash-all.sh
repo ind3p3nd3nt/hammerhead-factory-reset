@@ -1,4 +1,4 @@
-l#!/bin/sh;
+#!/bin/sh;
 echo 'BASH Script made by @independentcod;';
 echo 'github.com/independentcod/';
 echo 'Needs ROOT access to work.';
@@ -28,6 +28,7 @@ cd $nexusdir
 $unzip $imgfile
 cd ..
 fi
+$fastboot oem unlock;
 $fastboot format recovery;
 $fastboot format system;
 $fastboot format boot;
@@ -44,6 +45,5 @@ $fastboot flash userdata $nexusdir$usrdtaimg;
 $fastboot flash recovery $nexusdir$recoveryimg;
 $fastboot flash system $nexusdir$systemimg;
 $fastboot erase cache;
-$fastboot erase data;
 $fastboot reboot;
 exit 0
