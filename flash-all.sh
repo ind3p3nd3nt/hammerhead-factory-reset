@@ -38,9 +38,12 @@ $fastboot flash boot $nexusdir$bootimg;
 $fastboot flash bootloader $nexusdir$bootldrimg;
 $fastboot flash radio $nexusdir$radioimg;
 $fastboot reboot bootloader;
+sleep 5;
 $fastboot flash cache $nexusdir$cacheimg;
 $fastboot flash userdata $nexusdir$usrdtaimg;
 $fastboot flash recovery $nexusdir$recoveryimg;
 $fastboot flash system $nexusdir$systemimg;
 $fastboot reboot;
+$fastboot erase cache;
+$fastboot erase data;
 exit 0
