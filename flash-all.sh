@@ -1,7 +1,7 @@
 #!/bin/sh;
 echo 'BASH Script made by @independentcod;';
 echo 'github.com/independentcod/';
-sudo apt update && sudo apt install android-tools-fastboot wget unzip;
+sudo apt update && sudo apt install android-tools-fastboot wget unzip -y;
 nexusdir="./hammerhead-mob31e/"
 fastboot="/bin/fastboot"
 wget="/bin/wget"
