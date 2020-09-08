@@ -25,7 +25,7 @@ $unzip $file
 fi
 if [ ! -f "$nexusdir$recoveryimg" ]; then
 cd $nexusdir
-$unzip -d $nexusdir$imgfile
+$unzip $imgfile
 cd ..
 fi
 $fastboot erase recovery;
