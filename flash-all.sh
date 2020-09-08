@@ -1,5 +1,5 @@
-#!/bin/sh;
-echo 'BASH Script made by @independentcod;';
+#!/bin/sh
+echo 'BASH Script made by @independentcod;'
 echo 'github.com/independentcod/';
 echo 'Needs ROOT access to work.';
 sudo apt update && sudo apt install android-tools-fastboot wget unzip -y;
