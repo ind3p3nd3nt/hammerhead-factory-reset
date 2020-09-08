@@ -16,10 +16,11 @@ bootimg=boot.img
 cacheimg=cache.img
 usrdtaimg=userdata.img
 systemimg=system.img
-if [ -z "$file" ]; then
-$wget https://dl.google.com/dl/android/aosp/hammerhead-mob31e-factory-90504514.zip;
+if [ ! -f "$file" ]; then
+$wget https://dl.google.com/dl/android/aosp/hammerhead-mob31e-factory-90504514.zip
 fi
 if [ ! -d "$nexusdir" ]; then
+mkdir $nexusdir
 $unzip $file
 fi
 if [ -z "$nexusdir$recoveryimg" ]; then
