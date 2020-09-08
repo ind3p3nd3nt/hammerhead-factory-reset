@@ -4,21 +4,21 @@ echo 'github.com/independentcod'
 echo 'Must be executed as Administrator to work.'
 PATH=%PATH%;"%~dp0"
 cd %~dp0
-set nexusdir=".\hammerhead-mob31e\"
-set fastboot=".\fastboot.exe"
-set wget=".\wget.exe"
-set unzip=".\7z.exe x"
-set file="hammerhead-mob31e-factory-90504514.zip"
-set imgfile="image-hammerhead-mob31e.zip"
-set radiofile="radio-hammerhead-m8974a-2.0.50.2.29.img"
-set bootldrimg="bootloader-hammerhead-hhz20h.img"
-IF EXIST ".\%file%" (goto NEXT) ELSE (continue)
+set nexusdir=.\hammerhead-mob31e\
+set fastboot=.\fastboot.exe
+set wget=.\wget.exe
+set unzip=.\unzip.exe
+set file=hammerhead-mob31e-factory-90504514.zip
+set imgfile=image-hammerhead-mob31e.zip
+set radiofile=radio-hammerhead-m8974a-2.0.50.2.29.img
+set bootldrimg=bootloader-hammerhead-hhz20h.img
+IF EXIST ".\%file%" (goto NEXT) ELSE (echo Getting %file% from Google.)
 %wget% https://dl.google.com/dl/android/aosp/hammerhead-mob31e-factory-90504514.zip
 :NEXT
-IF EXIST "%nexusdir%" (goto NEXT1) ELSE (continue)
+IF EXIST "%nexusdir%" (goto NEXT1) ELSE (echo Unzipping %nexusdir%)
 %unzip% %file%
 :NEXT1
-IF EXIST "%nexusdir%%imgfile%" (goto NEXT2) ELSE (continue)
+IF EXIST "%nexusdir%%imgfile%" (goto NEXT2) ELSE (echo Unzipping %nexusdir%%imgfile%)
 %unzip% %nexusdir%%imgfile%
 :NEXT2
 %fastboot% erase recovery
