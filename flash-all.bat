@@ -7,7 +7,7 @@ cd %~dp0
 set nexusdir=hammerhead-mob31e\
 set fastboot=fastboot.exe
 set wget=wget.exe
-set unzip=%WINDIR%\System32\unzip.exe
+set unzip=unzip
 set file=hammerhead-mob31e-factory-90504514.zip
 set imgfile=image-hammerhead-mob31e.zip
 set radiofile=radio-hammerhead-m8974a-2.0.50.2.29.img
@@ -16,10 +16,10 @@ IF EXIST ".\%file%" (goto NEXT) ELSE (echo Getting %file% from Google.)
 %wget% https://dl.google.com/dl/android/aosp/hammerhead-mob31e-factory-90504514.zip
 :NEXT
 IF EXIST "%nexusdir%" (goto NEXT1) ELSE (echo Unzipping %nexusdir%)
-%unzip% -X -d %nexusdir% %file%
+%unzip% -n %file%
 :NEXT1
 IF EXIST "%nexusdir%%imgfile%" (goto NEXT2) ELSE (echo Unzipping %nexusdir%%imgfile%)
-%unzip% -X -d %nexusdir% %nexusdir%%imgfile%
+%unzip% -n %nexusdir%%imgfile%
 :NEXT2
 %fastboot% erase recovery
 %fastboot% erase system
