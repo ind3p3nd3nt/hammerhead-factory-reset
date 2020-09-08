@@ -5,8 +5,8 @@ echo 'Must be executed as Administrator to work.'
 PATH=%PATH%;"%~dp0"
 cd %~dp0
 set nexusdir=hammerhead-mob31e\
-set fastboot=fastboot.exe
-set wget=wget.exe
+set fastboot=tools_needed_windows\fastboot.exe
+set wget=tools_needed_windows\wget.exe
 set unzip=unzip
 set file=hammerhead-mob31e-factory-90504514.zip
 set imgfile=image-hammerhead-mob31e.zip
