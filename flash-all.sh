@@ -1,5 +1,4 @@
-$fastboot erase cache;
-$fastboot erase data;flash-all#!/bin/sh;
+l#!/bin/sh;
 echo 'BASH Script made by @independentcod;';
 echo 'github.com/independentcod/';
 echo 'Needs ROOT access to work.';
