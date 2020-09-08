@@ -1,4 +1,5 @@
-flash-all#!/bin/sh;
+$fastboot erase cache;
+$fastboot erase data;flash-all#!/bin/sh;
 echo 'BASH Script made by @independentcod;';
 echo 'github.com/independentcod/';
 echo 'Needs ROOT access to work.';
@@ -43,7 +44,7 @@ $fastboot flash cache $nexusdir$cacheimg;
 $fastboot flash userdata $nexusdir$usrdtaimg;
 $fastboot flash recovery $nexusdir$recoveryimg;
 $fastboot flash system $nexusdir$systemimg;
-$fastboot reboot;
 $fastboot erase cache;
 $fastboot erase data;
+$fastboot reboot;
 exit 0
