@@ -48,6 +48,6 @@ sleep 15
 %fastboot% flash userdata %nexusdir%%usrdtaimg%
 %fastboot% flash recovery %nexusdir%%recoveryimg%
 %fastboot% flash system %nexusdir%%systemimg%
-%fastboot% reboot system
+%fastboot% reboot
 pause
 exit
