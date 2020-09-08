@@ -43,7 +43,6 @@ sleep 5
 %fastboot% flash userdata %nexusdir%%usrdtaimg%
 %fastboot% flash recovery %nexusdir%%recoveryimg%
 %fastboot% flash system %nexusdir%%systemimg%
-%fastboot% erase cache
 %fastboot% oem lock
 %fastboot% reboot
 pause
