@@ -23,7 +23,7 @@ if [ ! -d "$nexusdir" ]; then
 $unzip $file
 fi
 if [ -z "$nexusdir$recoveryimg" ]; then
-$unzip $nexusdir$imgfile
+$unzip -d $nexusdir $nexusdir$imgfile
 fi
 sudo fastboot erase recovery;
 sudo fastboot erase system;
