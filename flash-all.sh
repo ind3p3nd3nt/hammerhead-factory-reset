@@ -22,7 +22,7 @@ fi
 if [ ! -d "$nexusdir" ]; then
 $unzip $file
 fi
-if [ -z "$nexusdir$imgfile" ]; then
+if [ -z "$nexusdir$recoveryimg" ]; then
 $unzip $nexusdir$imgfile
 fi
 sudo fastboot erase recovery;
@@ -46,5 +46,5 @@ sudo fastboot flash cache $nexusdir$cacheimg;
 sudo fastboot flash userdata $nexusdir$usrdtaimg;
 sudo fastboot flash recovery $nexusdir$recoveryimg;
 sudo fastboot flash system $nexusdir$systemimg;
-sleep 15;
+sudo fastboot reboot;
 exit 0
