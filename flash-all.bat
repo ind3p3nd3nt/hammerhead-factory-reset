@@ -12,14 +12,20 @@ set file=hammerhead-mob31e-factory-90504514.zip
 set imgfile=image-hammerhead-mob31e.zip
 set radiofile=radio-hammerhead-m8974a-2.0.50.2.29.img
 set bootldrimg=bootloader-hammerhead-hhz20h.img
+set recoveryimg=recovery.img
+set bootimg=boot.img
+set cacheimg=cache.img
+set usrdtaimg=userdata.img
+set systemimg=system.img
 IF EXIST ".\%file%" (goto NEXT) ELSE (echo Getting %file% from Google.)
 %wget% https://dl.google.com/dl/android/aosp/hammerhead-mob31e-factory-90504514.zip
 :NEXT
 IF EXIST "%nexusdir%" (goto NEXT1) ELSE (echo Unzipping %nexusdir%)
 %unzip% -n %file%
 :NEXT1
-IF EXIST "%nexusdir%%imgfile%" (goto NEXT2) ELSE (echo Unzipping %nexusdir%%imgfile%)
-%unzip% -n %nexusdir%%imgfile%
+IF EXIST "%nexusdir%recovery.img" (goto NEXT2) ELSE (echo Unzipping %nexusdir%%imgfile%)
+%unzip% -n -d %nexusdir% %nexusdir%%imgfile%
+sleep 15
 :NEXT2
 %fastboot% erase recovery
 %fastboot% erase system
@@ -34,13 +40,13 @@ IF EXIST "%nexusdir%%imgfile%" (goto NEXT2) ELSE (echo Unzipping %nexusdir%%imgf
 %fastboot% format cache
 %fastboot% format data
 %fastboot% format userdata
-%fastboot% flash boot %nexusdir%boot.img
-%fastboot% flash bootloader %bootldrimg%
-%fastboot% flash radio %radiofile%
+%fastboot% flash boot %nexusdir%%bootimg%
+%fastboot% flash bootloader %nexusdir%%bootldrimg%
+%fastboot% flash radio %nexusdir%%radiofile%
 %fastboot% reboot bootloader
-%fastboot% flash cache %nexusdir%cache.img
-%fastboot% flash userdata %nexusdir%userdata.img
-%fastboot% flash recovery %nexusdir%recovery.img
-%fastboot% flash system %nexusdir%system.img
+%fastboot% flash cache %nexusdir%%cacheimg%
+%fastboot% flash userdata %nexusdir%usrdtaimg%
+%fastboot% flash recovery %nexusdir%%recoveryimg%
+%fastboot% flash system %nexusdir%%systemimg%
 pause
 exit
