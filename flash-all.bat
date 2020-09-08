@@ -27,13 +27,6 @@ IF EXIST "%nexusdir%recovery.img" (goto NEXT2) ELSE (echo Unzipping %nexusdir%%i
 %unzip% -n -d %nexusdir% %nexusdir%%imgfile%
 sleep 15
 :NEXT2
-%fastboot% erase recovery
-%fastboot% erase system
-%fastboot% erase userdata
-%fastboot% erase data
-%fastboot% erase radio
-%fastboot% erase boot
-%fastboot% erase cache
 %fastboot% format recovery
 %fastboot% format system
 %fastboot% format boot
