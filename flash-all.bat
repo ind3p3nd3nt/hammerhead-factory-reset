@@ -45,8 +45,9 @@ sleep 15
 %fastboot% flash radio %nexusdir%%radiofile%
 %fastboot% reboot bootloader
 %fastboot% flash cache %nexusdir%%cacheimg%
-%fastboot% flash userdata %nexusdir%usrdtaimg%
+%fastboot% flash userdata %nexusdir%%usrdtaimg%
 %fastboot% flash recovery %nexusdir%%recoveryimg%
 %fastboot% flash system %nexusdir%%systemimg%
+%fastboot% reboot system
 pause
 exit
