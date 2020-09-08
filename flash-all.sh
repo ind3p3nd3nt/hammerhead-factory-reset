@@ -29,12 +29,14 @@ $unzip $imgfile
 cd ..
 fi
 $fastboot oem unlock;
+$fastboot erase userdata;
+$fastboot erase bootloader;
+$fastboot erase radio;
 $fastboot format recovery;
 $fastboot format system;
 $fastboot format boot;
 $fastboot format cache;
 $fastboot format data;
-$fastboot format userdata;
 $fastboot flash boot $nexusdir$bootimg;
 $fastboot flash bootloader $nexusdir$bootldrimg;
 $fastboot flash radio $nexusdir$radioimg;
