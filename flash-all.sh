@@ -4,7 +4,7 @@ echo 'github.com/independentcod/';
 echo 'Needs ROOT access to work.';
 sudo apt update && sudo apt install android-tools-fastboot wget unzip -y;
 nexusdir="./hammerhead-mob31e/"
-fastboot="/bin/fastboot"
+fastboot="fastboot"
 wget="/bin/wget"
 unzip="/bin/unzip"
 file="hammerhead-mob31e-factory-90504514.zip"
