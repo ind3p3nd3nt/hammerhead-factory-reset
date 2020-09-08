@@ -20,7 +20,7 @@ set systemimg=system.img
 IF EXIST ".\%file%" (goto NEXT) ELSE (echo Getting %file% from Google.)
 %wget% https://dl.google.com/dl/android/aosp/hammerhead-mob31e-factory-90504514.zip
 :NEXT
-IF EXIST "%nexusdir%" (goto NEXT1) ELSE (echo Unzipping %nexusdir%)
+IF EXIST "%nexusdir%" (goto NEXT1) ELSE (echo Unzipping %file% into %nexusdir%)
 %unzip% -n %file%
 :NEXT1
 IF EXIST "%nexusdir%recovery.img" (goto NEXT2) ELSE (echo Unzipping %nexusdir%%imgfile%)
