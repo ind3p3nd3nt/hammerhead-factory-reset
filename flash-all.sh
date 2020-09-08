@@ -23,7 +23,7 @@ if [ ! -d "$nexusdir" ]; then
 mkdir $nexusdir
 $unzip $file
 fi
-if [ -z "$nexusdir$recoveryimg" ]; then
+if [ ! -f "$nexusdir$recoveryimg" ]; then
 cd $nexusdir
 $unzip -d $nexusdir$imgfile
 cd ..
