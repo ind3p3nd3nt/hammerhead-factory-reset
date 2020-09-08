@@ -4,7 +4,7 @@ echo 'github.com/independentcod/';
 echo 'Needs ROOT access to work.';
 sudo apt update && sudo apt install android-tools-fastboot wget unzip -y;
 nexusdir="hammerhead-mob31e/"
-fastboot="fastboot"
+fastboot="sudo /bin/fastboot"
 wget="/bin/wget"
 unzip="/bin/unzip"
 file="hammerhead-mob31e-factory-90504514.zip"
@@ -24,28 +24,30 @@ mkdir $nexusdir
 $unzip $file
 fi
 if [ -z "$nexusdir$recoveryimg" ]; then
-$unzip -d $nexusdir $nexusdir$imgfile
+cd $nexusdir
+$unzip -d $nexusdir$imgfile
+cd ..
 fi
-sudo fastboot erase recovery;
-sudo fastboot erase system;
-sudo fastboot erase userdata;
-sudo fastboot erase data;
-sudo fastboot erase radio;
-sudo fastboot erase boot;
-sudo fastboot erase cache;
-sudo fastboot format recovery;
-sudo fastboot format system;
-sudo fastboot format boot;
-sudo fastboot format cache;
-sudo fastboot format data;
-sudo fastboot format userdata;
-sudo fastboot flash boot $nexusdir$bootimg;
-sudo fastboot flash bootloader $nexusdir$bootldrimg;
-sudo fastboot flash radio $nexusdir$radioimg;
-sudo fastboot reboot bootloader;
-sudo fastboot flash cache $nexusdir$cacheimg;
-sudo fastboot flash userdata $nexusdir$usrdtaimg;
-sudo fastboot flash recovery $nexusdir$recoveryimg;
-sudo fastboot flash system $nexusdir$systemimg;
-sudo fastboot reboot;
+$fastboot erase recovery;
+$fastboot erase system;
+$fastboot erase userdata;
+$fastboot erase data;
+$fastboot erase radio;
+$fastboot erase boot;
+$fastboot erase cache;
+$fastboot format recovery;
+$fastboot format system;
+$fastboot format boot;
+$fastboot format cache;
+$fastboot format data;
+$fastboot format userdata;
+$fastboot flash boot $nexusdir$bootimg;
+$fastboot flash bootloader $nexusdir$bootldrimg;
+$fastboot flash radio $nexusdir$radioimg;
+$fastboot reboot bootloader;
+$fastboot flash cache $nexusdir$cacheimg;
+$fastboot flash userdata $nexusdir$usrdtaimg;
+$fastboot flash recovery $nexusdir$recoveryimg;
+$fastboot flash system $nexusdir$systemimg;
+$fastboot reboot;
 exit 0
