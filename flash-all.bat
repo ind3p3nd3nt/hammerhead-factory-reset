@@ -217,8 +217,8 @@ home="/\$user"
 nh -r /bin/apt update && nh -r /bin/apt install tigervnc-standalone-server lxde-core net-tools lxterminal -y;
 user="n3thunt3r"
 home="/home/\$user"
-mkdir $CHROOT/home/\$user;
-mkdir $CHROOT/home/\${user}/Desktop/;
+if [ ! -d $CHROOT/home/\$user ]; then mkdir $CHROOT/home/\$user; fi
+if [ ! -d $CHROOT/home/\${user}/Desktop/ ]; then mkdir $CHROOT/home/\${user}/Desktop/; fi
 if [ ! -d $CHROOT/\${home}/.vnc ]; then nh -r /bin/mkdir \${home}/.vnc; fi
 echo 'lxsession &' > $CHROOT/\${home}/.vnc/xstartup;
 echo 'lxterminal &' >> $CHROOT/\${home}/.vnc/xstartup;
