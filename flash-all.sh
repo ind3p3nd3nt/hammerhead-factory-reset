@@ -17,7 +17,7 @@ cacheimg="cache.img"
 usrdtaimg="userdata.img"
 systemimg="system.img"
 if [ ! -f "$file" ]; then
-$wget https://dl.google.com/dl/android/aosp/hammerhead-mob31e-factory-90504514.zip
+$wget https://dl.google.com/dl/android/aosp/${file}
 fi
 if [ ! -d "$nexusdir" ]; then
 mkdir $nexusdir
@@ -30,6 +30,9 @@ cd ..
 fi
 sleep 15;
 $fastboot oem unlock;
+$fastboot erase recovery;
+$fastboot erase userdata;
+$fastboot erase radio;
 $fastboot format recovery;
 $fastboot format system;
 $fastboot format boot;
@@ -39,13 +42,12 @@ $fastboot format userdata;
 $fastboot flash boot $nexusdir$bootimg;
 $fastboot flash bootloader $nexusdir$bootldrimg;
 $fastboot flash radio $nexusdir$radioimg;
+$fastboot flash cache $nexusdir$cacheimg;
 $fastboot reboot bootloader;
 sleep 5;
-$fastboot flash cache $nexusdir$cacheimg;
 $fastboot flash userdata $nexusdir$usrdtaimg;
 $fastboot flash recovery $nexusdir$recoveryimg;
 $fastboot flash system $nexusdir$systemimg;
-$fastboot erase cache;
 $fastboot oem lock;
 $fastboot reboot;
 exit 0
