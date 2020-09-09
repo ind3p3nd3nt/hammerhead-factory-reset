@@ -28,7 +28,6 @@ cd $nexusdir
 $unzip $imgfile
 cd ..
 fi
-sleep 15;
 $fastboot oem unlock;
 sleep 10;
 $fastboot erase recovery;
