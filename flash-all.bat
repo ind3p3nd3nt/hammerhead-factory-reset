@@ -28,6 +28,7 @@ IF EXIST "%nexusdir%recovery.img" (goto NEXT2) ELSE (echo Unzipping %nexusdir%%i
 sleep 15
 :NEXT2
 %fastboot% oem unlock
+sleep 10
 %fastboot% erase recovery
 %fastboot% erase userdata
 %fastboot% erase radio
