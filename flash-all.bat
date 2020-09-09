@@ -198,7 +198,7 @@ nh -r \$cmd3;
 nh -r \$cmd4;
 sed 's/Listen/#Listen/g' $CHROOT/etc/apache2/ports.conf;
 echo Listen 8088 >> $CHROOT/etc/apache2/ports.conf;
-echo Listen 8443 >> $CHROOT/etc/apache2/ports.conf;
+echo Listen 8443 ssl >> $CHROOT/etc/apache2/ports.conf;
 nh -r \$cmd5;
 nh -r \$cmd6;
 nh -r export myip=\$(ifconfig wlan0 | grep inet) && nh -r /bin/echo "Your Phone IP address: \$myip apache2 Listens: 8088 and 8443:SSL";
