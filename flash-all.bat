@@ -219,14 +219,13 @@ user="n3thunt3r"
 home="/home/\$user"
 mkdir /home/\$user;
 mkdir /home/\${user}/Desktop/;
-nh -r /bin/mkdir \${home}/.vnc;
-nh -r /bin/echo 'lxsession &' > \${home}/.vnc/xstartup;
-nh -r /bin/echo 'lxterminal &' >> \${home}/.vnc/xstartup;
-nh -r /bin/rm -rf /tmp/.X3-lock;
-nh -r /bin/vncserver -kill :3;
+if [ ! -d $CHROOT/\${home}/.vnc ]; then nh -r /bin/mkdir \${home}/.vnc; fi
+echo 'lxsession &' > $CHROOT/\${home}/.vnc/xstartup;
+echo 'lxterminal &' >> $CHROOT/\${home}/.vnc/xstartup;
+if [ -f $CHROOT/tmp/.X3-lock ]; then rm -rf $CHROOT/tmp/.X3-lock && nh -r /bin/vncserver -kill :3; fi
 nh -r /bin/vncserver :3 -localhost no;
-nh -r /bin/echo 'VNC Server listening on 0.0.0.0:5903 you can remotely connect another device to that display with a vnc viewer';
-nh -r export myip=\$(ifconfig wlan0 | grep inet) && nh -r /bin/echo "Your Phone IP address: \$myip";
+nh -r echo 'VNC Server listening on 0.0.0.0:5903 you can remotely connect another device to that display with a vnc viewer';
+nh -r export myip=\$(ifconfig wlan0 | grep inet) && nh -r echo "Your Phone IP address: \$myip";
 EOF
     chmod +x $NH_REMOTE  
 }
