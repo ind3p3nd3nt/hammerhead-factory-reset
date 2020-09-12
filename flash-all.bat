@@ -30,12 +30,8 @@ sleep 15
 %fastboot% oem unlock
 sleep 10
 %fastboot% erase recovery
-%fastboot% erase system
 %fastboot% erase userdata
-%fastboot% erase data
 %fastboot% erase radio
-%fastboot% erase boot
-%fastboot% erase cache
 %fastboot% format recovery
 %fastboot% format system
 %fastboot% format boot
